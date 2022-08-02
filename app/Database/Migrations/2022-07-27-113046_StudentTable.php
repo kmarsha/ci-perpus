@@ -16,11 +16,17 @@ class StudentTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
+            'user_id' => [
+                'type' => 'int',
+                'constraint' => 20,
+                'unsigned' => true,
+                'null' => true,
+            ],
             'nis' => [
                 'type' => 'char',
                 'constraint' => 8,
             ],
-            'nama' => [
+            'nama_siswa' => [
                 'type' => 'varchar',
                 'constraint' => 255,
             ],
@@ -50,6 +56,7 @@ class StudentTable extends Migration
         ]);
 
         $this->forge->addPrimaryKey('student_id');
+        $this->forge->addForeignKey('user_id', 'users', 'id');
         $this->forge->addForeignKey('rayon_id', 'rayons', 'rayon_id');
         $this->forge->addForeignKey('rombel_id', 'rombels', 'rombel_id');
 

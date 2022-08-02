@@ -15,12 +15,12 @@
         ?>
           <tr>
             <td scope="row"><?= $no++ ?></td>
-            <td><?= $rayon->nama ?></td>
+            <td><?= $rayon->nama_rayon ?></td>
             <td><?= $rayon->jumlah_siswa ?></td>
             <td><?= $rayon->pembimbing ?></td>
             <td class="row justify-content-around">
               <button class="btn btn-warning" onclick="editRayon('<?= $rayon->rayon_id ?>')">Edit</button>
-              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Rayon <?= $rayon->nama ?> ?')) ? deleteRayon('<?= $rayon->rayon_id ?>') : '' ">Hapus</button>
+              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Rayon <?= $rayon->nama_rayon ?> ?')) ? deleteRayon('<?= $rayon->rayon_id ?>') : '' ">Hapus</button>
             </td>
           </tr>
         <?php

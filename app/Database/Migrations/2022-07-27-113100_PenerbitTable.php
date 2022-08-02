@@ -16,7 +16,7 @@ class PenerbitTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama' => [
+            'nama_penerbit' => [
                 'type' => 'varchar',
                 'constraint' => 100,
             ],

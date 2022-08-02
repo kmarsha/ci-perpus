@@ -68,7 +68,7 @@ class Penerbit extends BaseController
             $perusahaan = $this->request->getPost('perusahaan');
 
             $data = [
-                'nama' => $nama,
+                'nama_penerbit' => $nama,
                 'perusahaan' => $perusahaan,
             ];
 
@@ -131,7 +131,7 @@ class Penerbit extends BaseController
             $perusahaan = $this->request->getPost('perusahaan');
 
             $data = [
-                'nama' => $nama,
+                'nama_penerbit' => $nama,
                 'perusahaan' => $perusahaan,
             ];
 

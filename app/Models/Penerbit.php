@@ -14,7 +14,7 @@ class Penerbit extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'perusahaan'];
+    protected $allowedFields    = ['nama_penerbit', 'perusahaan'];
 
     // Dates
     protected $useTimestamps = false;

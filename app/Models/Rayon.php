@@ -14,7 +14,7 @@ class Rayon extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'jumlah_siswa', 'pembimbing'];
+    protected $allowedFields    = ['nama_rayon', 'jumlah_siswa', 'pembimbing'];
 
     // Dates
     protected $useTimestamps = false;

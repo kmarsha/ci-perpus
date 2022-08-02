@@ -14,11 +14,11 @@
         ?>
           <tr>
             <td scope="row"><?= $no++ ?></td>
-            <td class="text-left"><?= $rombel->nama ?></td>
+            <td class="text-left"><?= $rombel->nama_rombel ?></td>
             <td><?= $rombel->tingkat ?></td>
             <td class="row justify-content-around">
               <button class="btn btn-warning" onclick="editRombel('<?= $rombel->rombel_id ?>')">Edit</button>
-              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Rombel <?= $rombel->nama ?> ?')) ? deleteRombel('<?= $rombel->rombel_id ?>') : '' ">Hapus</button>
+              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Rombel <?= $rombel->nama_rombel ?> ?')) ? deleteRombel('<?= $rombel->rombel_id ?>') : '' ">Hapus</button>
             </td>
           </tr>
         <?php

@@ -70,7 +70,7 @@ class Rayon extends BaseController
             $pembimbing = $this->request->getPost('pembimbing');
 
             $data = [
-                'nama' => $nama,
+                'nama_rayon' => $nama,
                 'jumlah_siswa' => $jmlh,
                 'pembimbing' => $pembimbing,
             ];
@@ -135,7 +135,7 @@ class Rayon extends BaseController
             $pembimbing = $this->request->getPost('pembimbing');
 
             $data = [
-                'nama' => $nama,
+                'nama_rayon' => $nama,
                 'jumlah_siswa' => $jmlh,
                 'pembimbing' => $pembimbing,
             ];

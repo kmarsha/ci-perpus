@@ -4,20 +4,22 @@
   $title = (isset($book)) ? 'Update Data Buku' : 'New Buku';
   $value = isset($book)
     ? [
-      'judul_buku' => $book->judul,
+      'judul_buku' => $book->judul_buku,
       'penulis_buku' => $book->penulis,
       'penerbit_id' => $book->penerbit_id,
       'tahun_terbit' => $book->tahun_terbit,
+      'jumlah_buku' => $book->jumlah,
     ]
     : [
       'judul_buku' => '',
       'penulis_buku' => '',
       'penerbit_id' => '',
       'tahun_terbit' => '',
+      'jumlah_buku' => '',
     ];
 ?>
 
-<div class="modal fade" id="modalBuku" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="modalBuku" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
@@ -49,13 +51,13 @@
             </div>
             <div class="form-group mb-3">
               <label for="penerbit" class="form-label">Penerbit</label>
-              <select class="form-control" name="penerbit" id="penerbit">
+              <select class="form-control select2" style="width: 100%;" name="penerbit" id="penerbit">
                 <?php
                   if (isset($book)) {
                     foreach ($penerbits as $penerbit) {
                       if ($penerbit->penerbit_id == $book->penerbit_id) {
                       ?>
-                        <option value="<?= $book->penerbit_id ?>" selected><?= $penerbit->nama ?></option>
+                        <option value="<?= $book->penerbit_id ?>" selected><?= $penerbit->nama_penerbit ?></option>
                       <?php
                       }
                     }
@@ -67,7 +69,7 @@
                   <?php
                   foreach ($penerbits as $penerbit) {
                     ?>
-                      <option value="<?= $penerbit->penerbit_id ?>"><?= $penerbit->nama ?></option>
+                      <option value="<?= $penerbit->penerbit_id ?>"><?= $penerbit->nama_penerbit ?></option>
                     <?php
                   }
                 ?>
@@ -75,7 +77,7 @@
             </div>
             <div class="form-group mb-3">
               <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-              <input type="year" name="tahun_terbit" id="tahun_terbit" value="<?= $value['tahun_terbit'] ?>" class="form-control" placeholder="Masukkan Tahun Terbit . . ." aria-describedby="helpId">
+              <input type="text" name="tahun_terbit" id="tahun_terbit" value="<?= $value['tahun_terbit'] ?>" class="form-control" placeholder="Masukkan Tahun Terbit . . ." aria-describedby="helpId">
               <!-- <small id="helpId" class="text-muted">Help text</small> -->
             </div>
           </form>

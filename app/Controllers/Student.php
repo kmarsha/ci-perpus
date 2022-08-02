@@ -85,7 +85,7 @@ class Student extends BaseController
 
             $data = [
                 'nis' => $nis,
-                'nama' => $nama,
+                'nama_siswa' => $nama,
                 'rayon_id' => $rayon,
                 'rombel_id' => $rombel,
             ];
@@ -157,7 +157,7 @@ class Student extends BaseController
 
             $data = [
                 'nis' => $nis,
-                'nama' => $nama,
+                'nama_siswa' => $nama,
                 'rayon_id' => $rayon,
                 'rombel_id' => $rombel,
             ];

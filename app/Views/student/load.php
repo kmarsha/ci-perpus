@@ -7,6 +7,7 @@
       <th>Rayon</th>
       <th>Rombel</th>
       <th>Aksi</th>
+      <th>Dipinjam</th>
     </tr>
   </thead>
   <tbody>
@@ -17,12 +18,12 @@
           <tr>
             <td scope="row"><?= $no++ ?></td>
             <td><?= $student->nis ?></td>
-            <td><?= $student->nama ?></td>
+            <td><?= $student->nama_siswa ?></td>
             <?php
               foreach ($rayons as $rayon) {
                 if ($rayon->rayon_id == $student->rayon_id) {
                   ?>
-                    <td><?= $rayon->nama ?></td>
+                    <td><?= $rayon->nama_rayon ?></td>
                   <?php
                 }
               }
@@ -31,14 +32,14 @@
               foreach ($rombels as $rombel) {
                 if ($rombel->rombel_id == $student->rombel_id) {
                   ?>
-                    <td><?= $rombel->nama ?></td>
+                    <td><?= $rombel->nama_rombel ?></td>
                   <?php
                 }
               }
             ?>
             <td class="row justify-content-around">
               <button class="btn btn-warning" onclick="editStudent('<?= $student->student_id ?>')">Edit</button>
-              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Siswa <?= $student->nama ?> ?')) ? deleteStudent('<?= $student->student_id ?>') : '' ">Hapus</button>
+              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Siswa <?= $student->nama_siswa ?> ?')) ? deleteStudent('<?= $student->student_id ?>') : '' ">Hapus</button>
             </td>
           </tr>
         <?php

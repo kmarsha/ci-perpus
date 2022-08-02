@@ -12,9 +12,9 @@ class Peminjam extends Model
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'object';
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'student_id', 'judul_buku', 'buku_id', 'tgl_pinjam', 'tgl_kembali', 'ket'];
+    protected $allowedFields    = ['user_id', 'student_id', 'buku_id', 'tgl_pinjam', 'tgl_kembali', 'ket'];
 
     // Dates
     protected $useTimestamps = false;

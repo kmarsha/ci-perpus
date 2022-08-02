@@ -6,6 +6,7 @@
       <th>Penulis</th>
       <th>Penerbit</th>
       <th>Tahun Terbit</th>
+      <th>Status</th>
       <th>Aksi</th>
     </tr>
   </thead>
@@ -16,21 +17,14 @@
         ?>
           <tr>
             <td scope="row"><?= $no++ ?></td>
-            <td><?= $book->judul ?></td>
+            <td><?= $book->judul_buku ?></td>
             <td><?= $book->penulis ?></td>
-            <?php
-              foreach ($penerbits as $penerbit) {
-                if ($penerbit->penerbit_id == $book->penerbit_id) {
-                  ?>
-                    <td><?= $penerbit->nama ?></td>
-                  <?php
-                }
-              }
-            ?>
+            <td><?= $book->nama_penerbit ?></td>
             <td><?= $book->tahun_terbit ?></td>
+            <td class="text-capitalize"><?= $book->status ?></td>
             <td class="row justify-content-around">
               <button class="btn btn-warning" onclick="editBook('<?= $book->buku_id ?>')">Edit</button>
-              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Buku <?= $book->judul ?> ?')) ? deleteBook('<?= $book->buku_id ?>') : '' ">Hapus</button>
+              <button class="btn btn-danger" onclick="return (confirm('Yakin Hapus Data Buku <?= $book->judul_buku ?> ?')) ? deleteBook('<?= $book->buku_id ?>') : '' ">Hapus</button>
             </td>
           </tr>
         <?php

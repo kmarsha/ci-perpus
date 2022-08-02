@@ -5,7 +5,7 @@
   $value = isset($student)
     ? [
       'nis_siswa' => $student->nis,
-      'nama_siswa' => $student->nama,
+      'nama_siswa' => $student->nama_siswa,
       'rayon_id' => $student->rayon_id,
       'rombel_id' => $student->rombel_id,
     ]
@@ -17,7 +17,7 @@
     ];
 ?>
 
-<div class="modal fade" id="modalStudent" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="modalStudent" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
@@ -49,13 +49,13 @@
             </div>
             <div class="form-group mb-3">
               <label for="rayon" class="form-label">Rayon</label>
-              <select class="form-control" name="rayon" id="rayon">
+              <select class="form-control select2" name="rayon" id="rayon">
                 <?php
                   if (isset($student)) {
                     foreach ($rayons as $rayon) {
                       if ($rayon->rayon_id == $student->rayon_id) {
                       ?>
-                        <option value="<?= $student->rayon_id ?>" selected><?= $rayon->nama ?></option>
+                        <option value="<?= $student->rayon_id ?>" selected><?= $rayon->nama_rayon ?></option>
                       <?php
                       }
                     }
@@ -67,7 +67,7 @@
                   <?php
                   foreach ($rayons as $rayon) {
                     ?>
-                      <option value="<?= $rayon->rayon_id ?>"><?= $rayon->nama ?></option>
+                      <option value="<?= $rayon->rayon_id ?>"><?= $rayon->nama_rayon ?></option>
                     <?php
                   }
                 ?>
@@ -75,13 +75,13 @@
             </div>
             <div class="form-group mb-3">
               <label for="rombel" class="form-label">Rombel</label>
-              <select class="form-control" name="rombel" id="rombel">
+              <select class="form-control select2" name="rombel" id="rombel">
                 <?php
                   if (isset($student)) {
                     foreach ($rombels as $rombel) {
                       if ($rombel->rombel_id == $student->rombel_id) {
                       ?>
-                        <option value="<?= $student->rombel_id ?>" selected><?= $rombel->nama ?></option>
+                        <option value="<?= $student->rombel_id ?>" selected><?= $rombel->nama_rombel ?></option>
                       <?php
                       }
                     }
@@ -93,7 +93,7 @@
                 <?php
                   foreach ($rombels as $rombel) {
                     ?>
-                      <option value="<?= $rombel->rombel_id ?>"><?= $rombel->nama ?></option>
+                      <option value="<?= $rombel->rombel_id ?>"><?= $rombel->nama_rombel ?></option>
                     <?php
                   }
                 ?>

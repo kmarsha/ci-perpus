@@ -13,6 +13,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?= base_url() ?>/plugins/fontawesome-free/css/all.min.css">
+  
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?= base_url() ?>/plugins/daterangepicker/daterangepicker.css">
+
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="<?= base_url() ?>/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url() ?>/dist/css/adminlte.min.css">
   
@@ -42,7 +53,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <?= $this->renderSection('content') ?>
 
+    <!-- <div class="input-group date datepickers" id="ass_date" data-target-input="nearest">
+      <label for="assessment_date" class="col-md-4 col-form-label arterix">Assessment Date</label>
+      <input id="assessment_date" name="assessment_date" type="text" data-target="#ass_date" data-toggle="datetimepicker" 
+            class="form-control col-md-6 datetimepicker-input assessment-date-keypress" data-target="#ass_date" 
+            autocomplete="off" required>
+    </div>
+
+    
+    <div class="form-group">
+      <label>Tanggal Pinjam:</label>
+        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+            <input type="text" value="" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+    </div> -->
+
     <div class="modals"></div>
+
+    <?= $this->renderSection('modal') ?>
   </div>
   <!-- /.content-wrapper -->
 
@@ -52,15 +83,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
   <!-- /.control-sidebar -->
 
-  <!-- Main Footer -->
+  <!-- Main Footer
   <footer class="main-footer">
-    <!-- To the right -->
+    To the right
     <div class="float-right d-none d-sm-inline">
       Anything you want
     </div>
-    <!-- Default to the left -->
+    Default to the left
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  </footer> -->
 </div>
 <!-- ./wrapper -->
 
@@ -72,6 +103,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?= base_url() ?>/plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url() ?>/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="<?= base_url() ?>/plugins/select2/js/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="<?= base_url() ?>/plugins/moment/moment.min.js"></script>
+<script src="<?= base_url() ?>/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="<?= base_url() ?>/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?= base_url() ?>/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?= base_url() ?>/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -90,6 +130,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <script src="<?= base_url() ?>/dist/snackbar.min.js"></script>
 <script src="<?= base_url() ?>/dist/init.js"></script>
+
+<script>
+  $('body').on('shown.bs.modal', '.modal', function() {
+    $(this).find('select').each(function() {
+      var dropdownParent = $(document.body);
+      if ($(this).parents('.modal.in:first').length !== 0)
+        dropdownParent = $(this).parents('.modal.in:first');
+      $(this).select2({
+        dropdownParent: dropdownParent
+        // ...
+      });
+    });
+  });
+
+  $("body").delegate(".datepickers", "focusin", function () {
+      $(this).datetimepicker({
+        format: 'YYYY-MM-DD'
+      });
+  });
+
+  $(function() {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+    
+  });
+
+</script>
 
 <?= $this->include('_partials/js/session') ;?>
 
@@ -145,17 +217,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
         var data = $('#form-peminjam').serialize()
         const response = await HitData(url, data, 'POST')
         var success = response.success
+        console.log(response)
         if (success) {
           $('#send_form').html('Submit');
           successNotif(response.msg)
           document.getElementById("form-peminjam").reset(); 
-          getPeminjam()
+          <?php
+            if (in_groups('admin')) {
+              ?>
+                getPeminjam()
+              <?php
+            }
+          ?>
           $('#modalPeminjam').modal('hide')
         } else {
           errorNotif(response.msg)
         }
       }
     });
+  }
+    
+  async function getPeminjam() {
+    try {
+      var sectionData = $('#load-peminjam')
+      url = '<?= base_url() ?>/peminjam'
+      const response = await HitData(url, null, "GET");
+      sectionData.html(response)
+      
+      $("#peminjam-table").DataTable({
+        'pageLength': 10,
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#peminjam-table-wrapper');
+    } catch (error) {
+        errorNotif('Error ' . error)
+    }
   }
   
   async function newPeminjam() {

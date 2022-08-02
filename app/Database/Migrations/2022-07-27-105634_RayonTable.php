@@ -16,7 +16,7 @@ class RayonTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama' => [
+            'nama_rayon' => [
                 'type' => 'varchar',
                 'constraint' => 20,
             ],

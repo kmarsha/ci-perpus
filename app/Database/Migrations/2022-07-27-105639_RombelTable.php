@@ -16,7 +16,7 @@ class RombelTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama' => [
+            'nama_rombel' => [
                 'type' => 'varchar',
                 'constraint' => 50,
             ],

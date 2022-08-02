@@ -66,7 +66,7 @@ class Rombel extends BaseController
             $tingkat = $this->request->getPost('tingkat');
 
             $data = [
-                'nama' => $nama_rombel,
+                'nama_rombel' => $nama_rombel,
                 'tingkat' => $tingkat,
             ];
 
@@ -126,7 +126,7 @@ class Rombel extends BaseController
             $tingkat = $this->request->getPost('tingkat');
 
             $data = [
-                'nama' => $nama_rombel,
+                'nama_rombel' => $nama_rombel,
                 'tingkat' => $tingkat,
             ];
 

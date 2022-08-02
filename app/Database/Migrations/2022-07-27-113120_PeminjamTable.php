@@ -16,18 +16,17 @@ class PeminjamTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama' => [
-                'type' => 'varchar',
-                'constraint' => 255,
+            'user_id' => [
+                'type' => 'int',
+                'constraint' => 20,
+                'unsigned' => true,
+                'null' => true,
             ],
             'student_id' => [
                 'type' => 'int',
                 'constraint' => 20,
                 'unsigned' => true,
-            ],
-            'judul_buku' => [
-                'type' => 'varchar',
-                'constraint' => 255,
+                'null' => true,
             ],
             'buku_id' => [
                 'type' => 'int',
@@ -65,6 +64,7 @@ class PeminjamTable extends Migration
 
         $this->forge->addPrimaryKey('peminjam_id');
         $this->forge->addForeignKey('student_id', 'students', 'student_id');
+        $this->forge->addForeignKey('user_id', 'users', 'id');
         $this->forge->addForeignKey('buku_id', 'books', 'buku_id');
 
         $this->forge->createTable('peminjams');

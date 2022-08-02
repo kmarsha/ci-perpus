@@ -14,7 +14,7 @@ class Rombel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'tingkat'];
+    protected $allowedFields    = ['nama_rombel', 'tingkat'];
 
     // Dates
     protected $useTimestamps = false;

@@ -4,7 +4,7 @@
   $title = (isset($rombel)) ? 'Update Data Rombel' : 'New Rombel';
   $value = isset($rombel)
     ? [
-      'nama_rombel' => $rombel->nama,
+      'nama_rombel' => $rombel->nama_rombel,
       'tingkat' => $rombel->tingkat,
     ]
     : [

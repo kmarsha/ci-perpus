@@ -4,7 +4,7 @@
   $title = (isset($penerbit)) ? 'Update Data Penerbit' : 'New Penerbit';
   $value = isset($penerbit)
     ? [
-      'nama_penerbit' => $penerbit->nama,
+      'nama_penerbit' => $penerbit->nama_penerbit,
       'perusahaan' => $penerbit->perusahaan,
     ]
     : [

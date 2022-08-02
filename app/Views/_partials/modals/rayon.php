@@ -4,7 +4,7 @@
   $title = (isset($rayon)) ? 'Update Data Rayon' : 'New Rayon';
   $value = isset($rayon)
     ? [
-      'nama_rayon' => $rayon->nama,
+      'nama_rayon' => $rayon->nama_rayon,
       'jumlah_siswa' => $rayon->jumlah_siswa,
       'pembimbing' => $rayon->pembimbing,
     ]

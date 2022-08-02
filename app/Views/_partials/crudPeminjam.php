@@ -3,23 +3,6 @@
     $(function () {
       getPeminjam()
     });
-    
-    async function getPeminjam() {
-      try {
-        var sectionData = $('#load-peminjam')
-        url = '<?= base_url() ?>/peminjam'
-        const response = await HitData(url, null, "GET");
-        sectionData.html(response)
-        
-        $("#peminjam-table").DataTable({
-          'pageLength': 10,
-          "responsive": true, "lengthChange": false, "autoWidth": false,
-          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#peminjam-table-wrapper');
-      } catch (error) {
-          errorNotif('Error ' . error)
-      }
-    }
 
     async function editPeminjam(id) {
       try {

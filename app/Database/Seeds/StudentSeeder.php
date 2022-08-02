@@ -10,37 +10,37 @@ class StudentSeeder extends Seeder
     {
         $rayons = [
             [
-                'nama' => 'Ciawi',
+                'nama_rayon' => 'Ciawi',
                 'jumlah_siswa' => 40,
                 'pembimbing' => 'PR Ciawi',
             ],
             [
-                'nama' => 'Cibedug',
+                'nama_rayon' => 'Cibedug',
                 'jumlah_siswa' => 43,
                 'pembimbing' => 'PR Cibedug',
             ],
             [
-                'nama' => 'Cicurug',
+                'nama_rayon' => 'Cicurug',
                 'jumlah_siswa' => 65,
                 'pembimbing' => 'PR Cicurug',
             ],
             [
-                'nama' => 'Cisarua',
+                'nama_rayon' => 'Cisarua',
                 'jumlah_siswa' => 42,
                 'pembimbing' => 'PR Cisarua',
             ],
             [
-                'nama' => 'Sukasari',
+                'nama_rayon' => 'Sukasari',
                 'jumlah_siswa' => 39,
                 'pembimbing' => 'PR Sukasari',
             ],
             [
-                'nama' => 'Tajur',
+                'nama_rayon' => 'Tajur',
                 'jumlah_siswa' => 58,
                 'pembimbing' => 'PR Tajur',
             ],
             [
-                'nama' => 'Wikrama',
+                'nama_rayon' => 'Wikrama',
                 'jumlah_siswa' => 112,
                 'pembimbing' => 'PR Wikrama',
             ],
@@ -50,31 +50,31 @@ class StudentSeeder extends Seeder
 
         $rombels = [
             [
-                'nama' => 'Rekayasa Perangkat Lunak',
+                'nama_rombel' => 'Rekayasa Perangkat Lunak',
                 'tingkat' => 12
             ],
             [
-                'nama' => 'Teknik Komputer dan Jaringan',
+                'nama_rombel' => 'Teknik Komputer dan Jaringan',
                 'tingkat' => 12
             ],
             [
-                'nama' => 'Multimedia',
+                'nama_rombel' => 'Multimedia',
                 'tingkat' => 12
             ],
             [
-                'nama' => 'Olah Tata Kelola Perkantoran',
+                'nama_rombel' => 'Olah Tata Kelola Perkantoran',
                 'tingkat' => 12
             ],
             [
-                'nama' => 'Bisnis dan Pemasaran',
+                'nama_rombel' => 'Bisnis dan Pemasaran',
                 'tingkat' => 12
             ],
             [
-                'nama' => 'Hotel',
+                'nama_rombel' => 'Hotel',
                 'tingkat' => 12
             ],
             [
-                'nama' => 'Tata Boga',
+                'nama_rombel' => 'Tata Boga',
                 'tingkat' => 12
             ],
         ];
@@ -83,14 +83,16 @@ class StudentSeeder extends Seeder
 
         $students = [
             [
+                'user_id' => 3,
                 'nis' => 12007880,
-                'nama' => 'Marsha Kordhawerti',
+                'nama_siswa' => 'Marsha Kordhawerti',
                 'rayon_id' => 2,
                 'rombel_id' => 1,
             ],
             [
+                'user_id' => 4,
                 'nis' => 12007880,
-                'nama' => 'Macca',
+                'nama_siswa' => 'Macca',
                 'rayon_id' => 4,
                 'rombel_id' => 7,
             ],

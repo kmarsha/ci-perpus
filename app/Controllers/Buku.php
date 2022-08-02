@@ -17,11 +17,13 @@ class Buku extends BaseController
     public function index()
     {
         try {
+            $books = $this->model->select('*')
+                ->join('penerbits as p', 'books.penerbit_id = p.penerbit_id')
+                ->get();
+
             $data = [
-                'penerbits' => $this->penerbitModel->findAll(),
+                'books' => $books->getResult(),
             ];
-            
-            $data['books'] = $this->model->findAll();
 
             $data['page'] = 'book';    
 
@@ -79,7 +81,7 @@ class Buku extends BaseController
             $tahun_terbit = $this->request->getPost('tahun_terbit');
 
             $data = [
-                'judul' => $judul,
+                'judul_buku' => $judul,
                 'penulis' => $penulis,
                 'penerbit_id' => $penerbit_id,
                 'tahun_terbit' => $tahun_terbit,
@@ -150,7 +152,7 @@ class Buku extends BaseController
             $tahun_terbit = $this->request->getPost('tahun_terbit');
 
             $data = [
-                'judul' => $judul,
+                'judul_buku' => $judul,
                 'penulis' => $penulis,
                 'penerbit_id' => $penerbit_id,
                 'tahun_terbit' => $tahun_terbit,

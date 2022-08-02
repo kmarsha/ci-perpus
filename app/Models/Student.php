@@ -14,7 +14,7 @@ class Student extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nis', 'nama', 'rayon_id', 'rombel_id'];
+    protected $allowedFields    = ['user_id', 'nis', 'nama_siswa', 'rayon_id', 'rombel_id'];
 
     // Dates
     protected $useTimestamps = false;

@@ -16,7 +16,7 @@ class BukuTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'judul' => [
+            'judul_buku' => [
                 'type' => 'varchar',
                 'constraint' => 255,
             ],
@@ -32,6 +32,11 @@ class BukuTable extends Migration
             'tahun_terbit' => [
                 'type' => 'varchar',
                 'constraint' => 4,
+            ],
+            'status' => [
+                'type' => 'enum',
+                'constraint' => ['tersedia', 'dipinjam'],
+                'default' => 'tersedia',
             ],
             'created_at' => [
                 'type' => 'timestamp',
