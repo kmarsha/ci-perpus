@@ -103,8 +103,8 @@ _modules/*
 nbproject/
 build/
 nbbuild/
-dist/
-nbdist/
+# dist/
+# nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
